@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wsdeco.oa.branch.department.dao.IBranchDao">
+	
+	<select id="selectAllRows" resultType="long">
+		select count(id)
+		from department 
+	</select>
+	
+	<select id="selectCurrentPageDates" resultType="department">
+		select id,name,shortName,remark
+		from department
+		limit #{pageStartIndex}, #{pageSize}
+	</select>
+	
+	<select id="selectDepartmentById" resultType="department">
+		select id,name,shortName,remark
+		from department
+		where id=#{xxx}
+	</select>
+	
+	<insert id="insertBranch">
+		insert into department(name,shortName,remark) 
+		values(#{name},#{shortName},#{remark})
+	</insert>
+	
+	<update id="updateBranch">
+		update department
+		set name=#{name},shortName=#{shortName},remark=#{remark}
+		where id=#{id}
+	</update>
+	
+	<delete id="deleteBranchById">
+		delete from department where id=#{xxx}
+	</delete>
+</mapper>

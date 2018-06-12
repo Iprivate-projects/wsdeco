@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wsdeco.oa.notice.manage.dao.INoticeDao">
+	
+	<select id="selectAllRows" resultType="long">
+		select count(id)
+		from notice
+	</select>
+	
+	<select id="selectCurrentPageDates" resultType="noticeBean">
+		select id,title,time
+		from notice
+		limit #{pageStartIndex}, #{pageSize}
+	</select>
+	
+	<insert id="insertNotice">
+		insert into notice(title,time)
+		values(#{title},#{time})
+	
+	</insert>
+	
+	<delete id="deleteNoticeById">
+		delete from notice where id=#{xxx}
+	</delete>
+	
+	<update id="updateNotice">
+		update notice
+		set title=#{title},time=#{time}
+		where id=#{id}
+	</update>
+	
+	<select id="selectNoticeById" resultType="noticeBean">
+		select id,title,time
+		from notice
+		where id=#{xxx}
+	</select>
+	
+</mapper>
