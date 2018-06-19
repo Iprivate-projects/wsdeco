@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+	
+	
+	<!-- 注册Service -->
+	 <bean id="readService" class="com.wsdeco.oa.hr.serviceImpl.IDataReadServiceImpl">
+		<property name="dao" ref="IDataDao"/>
+	</bean>
+	
+	<!-- 注册Service -->
+	<bean id="BranchService" class="com.wsdeco.oa.branch.department.serviceImpl.BranchServiceImpl">
+		<property name="dao" ref="IBranchDao"/>
+	</bean>
+	
+	<!-- 注册Service -->
+	<bean id="noticeService" class="com.wsdeco.oa.notice.manage.serviceImpl.NoticeImpl">
+		<property name="dao" ref="INoticeDao"/>
+	</bean>
+	
+</beans>
